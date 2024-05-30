@@ -9,19 +9,22 @@ class MyTextField extends StatelessWidget {
   bool obscureText;
   TextEditingController controller;
   FocusNode? focusNode;
+  bool isEnabled;
 
   MyTextField(
       {super.key,
       required this.hintText,
       this.obscureText = false,
       required this.controller,
-      this.focusNode});
+      this.focusNode,
+      this.isEnabled = true});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
+          enabled: isEnabled,
           focusNode: focusNode,
           controller: controller,
           obscureText: obscureText,
